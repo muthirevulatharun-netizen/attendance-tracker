@@ -23,8 +23,8 @@ const attendanceDatabase = {
     "24691A32S8": [
         { subject: "Aptitude", present: 1, total: 1 },
         { subject: "Discrete Mathematical Structures", present: 3, total: 3 },
-        { subject: "Introduction To Data Science", present: 1, total: 2 },
-        { subject: "Data Engineering", present: 2, total: 3 },
+        { subject: "Introduction To Data Science", present: 2, total: 2 },
+        { subject: "Data Engineering", present: 3, total: 3 },
         { subject: "Data Science Laboratory", present: 3, total: 3 },
         { subject: "NPTEL-1", present: 2, total: 2 },
         { subject: "NPTEL-2", present: 2, total: 2 },
