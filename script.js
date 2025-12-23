@@ -4,33 +4,42 @@ let currentSession = null;
 
 // Sample database for demonstration (fallback)
 const userDatabase = {
-    "24691A32R8": { password: "password123", name: "surya raju" },
-    "24691A32S8": { password: "password1234", name: "tharun reddy" },
-    "24691A32T7": { password: "password8", name: "vamsi" },
+    "24691A32R8": { password: "passwordr8", name: "surya raju" },
+    "24691A32S8": { password: "passwords8", name: "tharun reddy" },
+    "24691A32T7": { password: "passwordt7", name: "vamsi" },
 };
 
 // Sample attendance data (fallback)
 const attendanceDatabase = {
     "24691A32R8": [
-        { subject: "Mathematics", present: 45, total: 50, percentage: 90 },
-        { subject: "Physics", present: 42, total: 50, percentage: 84 },
-        { subject: "Chemistry", present: 48, total: 50, percentage: 96 },
-        { subject: "English", present: 40, total: 45, percentage: 89 },
-        { subject: "Computer Science", present: 47, total: 50, percentage: 94 },
+        { subject: "aptitude", present: 1, total: 1, percentage: 100 },
+        { subject: "Discrete Mathematical Structures", present: 38, total: 50, percentage: 76 },
+        { subject: "Introduction To Data Science", present: 32, total: 45, percentage: 71 },
+        { subject: "Data Engineering", present: 40, total: 48, percentage: 83 },
+        { subject: "Data science Laboratory", present: 44, total: 50, percentage: 88,
+        subject: "Nptl-1", present: 44, total: 50, percentage: 88,
+        subject: "nptl-2", present: 44, total: 50, percentage: 88,
+        subject: "code tantra", present: 44, total: 50, percentage: 88 },
     ],
     "24691A32S8": [
-        { subject: "Mathematics", present: 35, total: 50, percentage: 70 },
-        { subject: "Physics", present: 38, total: 50, percentage: 76 },
-        { subject: "Chemistry", present: 32, total: 45, percentage: 71 },
-        { subject: "English", present: 40, total: 48, percentage: 83 },
-        { subject: "Computer Science", present: 44, total: 50, percentage: 88 },
+        { subject: "aptitude", present: 1, total: 1, percentage: 100 },
+        { subject: "Discrete Mathematical Structures", present: 3, total: 3, percentage: 100 },
+        { subject: "Introduction To Data Science", present: 1, total: 2, percentage: 100 },
+        { subject: "Data Engineering", present: 2, total: 3, percentage: 100 },
+        { subject: "Data science Laboratory", present: 3, total: 3, percentage: 88,
+        subject: "Nptl-1", present: 2, total: 2, percentage: 88,
+        subject: "nptl-2", present: 2, total: 2, percentage: 88,
+        subject: "code tantra", present: 2, total: 2, percentage: 88},
     ],
     "24691A32T7": [
-        { subject: "Mathematics", present: 48, total: 50, percentage: 96 },
-        { subject: "Physics", present: 47, total: 50, percentage: 94 },
-        { subject: "Chemistry", present: 46, total: 50, percentage: 92 },
-        { subject: "English", present: 43, total: 45, percentage: 96 },
-        { subject: "Computer Science", present: 49, total: 50, percentage: 98 },
+        {subject: "aptitude", present: 1, total: 1, percentage: 100 },
+        { subject: "Discrete Mathematical Structures", present: 38, total: 50, percentage: 76 },
+        { subject: "Introduction To Data Science", present: 32, total: 45, percentage: 71 },
+        { subject: "Data Engineering", present: 40, total: 48, percentage: 83 },
+        { subject: "Data science Laboratory", present: 44, total: 50, percentage: 88,
+        subject: "Nptl-1", present: 44, total: 50, percentage: 88,
+        subject: "nptl-2", present: 44, total: 50, percentage: 88,
+        subject: "code tantra", present: 44, total: 50, percentage: 88 },
     ],
 };
 
