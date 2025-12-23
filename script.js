@@ -1,51 +1,48 @@
-// MITS IMS GEMS API Configuration
+// ===================== CONFIG =====================
 const API_BASE_URL = 'http://mitsims.in';
-let currentSession = null;
 
-// Sample database for demonstration (fallback)
+// ===================== USERS ======================
 const userDatabase = {
     "24691A32R8": { password: "passwordr8", name: "Surya Raju" },
     "24691A32S8": { password: "passwords8", name: "Tharun Reddy" },
-    "24691A32T7": { password: "passwordt7", name: "Vamsi" },
+    "24691A32T7": { password: "passwordt7", name: "Vamsi" }
 };
 
-// ✅ FIXED attendance data structure
+// ===================== ATTENDANCE =================
 const attendanceDatabase = {
     "24691A32R8": [
-        { subject: "Aptitude", present: 1, total: 1, percentage: 100 },
-        { subject: "Discrete Mathematical Structures", present: 38, total: 50, percentage: 76 },
-        { subject: "Introduction To Data Science", present: 32, total: 45, percentage: 71 },
-        { subject: "Data Engineering", present: 40, total: 48, percentage: 83 },
-        { subject: "Data Science Laboratory", present: 44, total: 50, percentage: 88 },
-        { subject: "NPTEL-1", present: 44, total: 50, percentage: 88 },
-        { subject: "NPTEL-2", present: 44, total: 50, percentage: 88 },
-        { subject: "Code Tantra", present: 44, total: 50, percentage: 88 }
+        { subject: "Aptitude", present: 1, total: 1 },
+        { subject: "Discrete Mathematical Structures", present: 38, total: 50 },
+        { subject: "Introduction To Data Science", present: 32, total: 45 },
+        { subject: "Data Engineering", present: 40, total: 48 },
+        { subject: "Data Science Laboratory", present: 44, total: 50 },
+        { subject: "NPTEL-1", present: 44, total: 50 },
+        { subject: "NPTEL-2", present: 44, total: 50 },
+        { subject: "Code Tantra", present: 44, total: 50 }
     ],
-
     "24691A32S8": [
-        { subject: "Aptitude", present: 1, total: 1, percentage: 100 },
-        { subject: "Discrete Mathematical Structures", present: 3, total: 3, percentage: 100 },
-        { subject: "Introduction To Data Science", present: 1, total: 2, percentage: 50 },
-        { subject: "Data Engineering", present: 2, total: 3, percentage: 67 },
-        { subject: "Data Science Laboratory", present: 3, total: 3, percentage: 100 },
-        { subject: "NPTEL-1", present: 2, total: 2, percentage: 100 },
-        { subject: "NPTEL-2", present: 2, total: 2, percentage: 100 },
-        { subject: "Code Tantra", present: 2, total: 2, percentage: 100 }
+        { subject: "Aptitude", present: 1, total: 1 },
+        { subject: "Discrete Mathematical Structures", present: 3, total: 3 },
+        { subject: "Introduction To Data Science", present: 1, total: 2 },
+        { subject: "Data Engineering", present: 2, total: 3 },
+        { subject: "Data Science Laboratory", present: 3, total: 3 },
+        { subject: "NPTEL-1", present: 2, total: 2 },
+        { subject: "NPTEL-2", present: 2, total: 2 },
+        { subject: "Code Tantra", present: 2, total: 2 }
     ],
-
     "24691A32T7": [
-        { subject: "Aptitude", present: 1, total: 1, percentage: 100 },
-        { subject: "Discrete Mathematical Structures", present: 38, total: 50, percentage: 76 },
-        { subject: "Introduction To Data Science", present: 32, total: 45, percentage: 71 },
-        { subject: "Data Engineering", present: 40, total: 48, percentage: 83 },
-        { subject: "Data Science Laboratory", present: 44, total: 50, percentage: 88 },
-        { subject: "NPTEL-1", present: 44, total: 50, percentage: 88 },
-        { subject: "NPTEL-2", present: 44, total: 50, percentage: 88 },
-        { subject: "Code Tantra", present: 44, total: 50, percentage: 88 }
+        { subject: "Aptitude", present: 1, total: 1 },
+        { subject: "Discrete Mathematical Structures", present: 38, total: 50 },
+        { subject: "Introduction To Data Science", present: 32, total: 45 },
+        { subject: "Data Engineering", present: 40, total: 48 },
+        { subject: "Data Science Laboratory", present: 44, total: 50 },
+        { subject: "NPTEL-1", present: 44, total: 50 },
+        { subject: "NPTEL-2", present: 44, total: 50 },
+        { subject: "Code Tantra", present: 44, total: 50 }
     ]
 };
 
-// DOM Elements
+// ===================== DOM =========================
 const loginForm = document.getElementById('loginForm');
 const loginSection = document.getElementById('loginSection');
 const attendanceSection = document.getElementById('attendanceSection');
@@ -55,69 +52,67 @@ const calculateSkipBtn = document.getElementById('calculateSkipBtn');
 const skipResults = document.getElementById('skipResults');
 const skipDetails = document.getElementById('skipDetails');
 
-// Initialize
+// ===================== INIT ========================
 document.addEventListener('DOMContentLoaded', () => {
-    const loggedInUser = localStorage.getItem('loggedInUser');
-    if (loggedInUser && attendanceDatabase[loggedInUser]) {
-        displayAttendance(loggedInUser, attendanceDatabase[loggedInUser]);
+    const user = localStorage.getItem('loggedInUser');
+    if (user && attendanceDatabase[user]) {
+        displayAttendance(user, attendanceDatabase[user]);
     }
-
     loginForm.addEventListener('submit', handleLogin);
     logoutBtn.addEventListener('click', handleLogout);
     calculateSkipBtn?.addEventListener('click', calculateSkipDays);
 });
 
-// Handle login
+// ===================== LOGIN =======================
 function handleLogin(e) {
     e.preventDefault();
+    const roll = document.getElementById('rollNumber').value.trim();
+    const pass = document.getElementById('password').value;
 
-    const rollNumber = document.getElementById('rollNumber').value.trim();
-    const password = document.getElementById('password').value;
-
-    errorMessage.textContent = '';
-
-    if (userDatabase[rollNumber] && userDatabase[rollNumber].password === password) {
-        localStorage.setItem('loggedInUser', rollNumber);
-        displayAttendance(rollNumber, attendanceDatabase[rollNumber]);
+    if (userDatabase[roll] && userDatabase[roll].password === pass) {
+        localStorage.setItem('loggedInUser', roll);
+        displayAttendance(roll, attendanceDatabase[roll]);
+        errorMessage.textContent = '';
     } else {
         errorMessage.textContent = 'Invalid Register Number or Password';
     }
 }
 
-// Display attendance
-function displayAttendance(rollNumber, attendanceData) {
-    const user = userDatabase[rollNumber];
-
-    document.getElementById('displayRoll').textContent = rollNumber;
+// ===================== DISPLAY ====================
+function displayAttendance(roll, data) {
+    const user = userDatabase[roll];
+    document.getElementById('displayRoll').textContent = roll;
     document.getElementById('displayName').textContent = user.name;
 
-    const attendanceList = document.getElementById('attendanceList');
-    attendanceList.innerHTML = '';
+    const list = document.getElementById('attendanceList');
+    list.innerHTML = '';
 
     let totalPercent = 0;
 
-    attendanceData.forEach(subject => {
-        totalPercent += subject.percentage;
+    data.forEach(sub => {
+        const percent = sub.total > 0
+            ? Math.round((sub.present / sub.total) * 100)
+            : 0;
 
-        const item = document.createElement('div');
-        item.className = 'attendance-item';
+        totalPercent += percent;
 
-        item.innerHTML = `
-            <h4>${subject.subject} ${subject.percentage < 75 ? '⚠️' : '✅'}</h4>
-            <p>Present: ${subject.present} / ${subject.total}</p>
-            <strong>${subject.percentage}%</strong>
+        list.innerHTML += `
+            <div class="attendance-item">
+                <h4>${sub.subject} ${percent < 75 ? '⚠️' : '✅'}</h4>
+                <p>Present: ${sub.present} / ${sub.total}</p>
+                <strong>${percent}%</strong>
+            </div>
         `;
-        attendanceList.appendChild(item);
     });
 
     document.getElementById('overallAverage').textContent =
-        (totalPercent / attendanceData.length).toFixed(1) + '%';
+        (totalPercent / data.length).toFixed(1) + '%';
 
     loginSection.classList.remove('active');
     attendanceSection.classList.add('active');
 }
 
-// Calculate skip days
+// ===================== SKIP =======================
 function calculateSkipDays() {
     const user = localStorage.getItem('loggedInUser');
     if (!user) return;
@@ -125,10 +120,11 @@ function calculateSkipDays() {
     skipDetails.innerHTML = '';
 
     attendanceDatabase[user].forEach(sub => {
-        let canSkip = Math.max(
-            Math.floor((sub.total * 0.25) - (sub.total - sub.present)),
-            0
-        );
+        const percent = sub.total > 0 ? (sub.present / sub.total) * 100 : 0;
+
+        let canSkip = percent >= 75
+            ? Math.max(Math.floor((sub.total * 0.25) - (sub.total - sub.present)), 0)
+            : 0;
 
         skipDetails.innerHTML += `
             <div class="skip-item">
@@ -140,7 +136,7 @@ function calculateSkipDays() {
     skipResults.style.display = 'block';
 }
 
-// Logout
+// ===================== LOGOUT =====================
 function handleLogout() {
     localStorage.removeItem('loggedInUser');
     attendanceSection.classList.remove('active');
