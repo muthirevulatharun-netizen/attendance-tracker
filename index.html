@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MITS IMS GEMS - Attendance Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Section -->
+        <div id="loginSection" class="section active">
+            <div class="header">
+                <h1>MITS IMS GEMS</h1>
+                <p class="subtitle">Attendance Tracker</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="rollNumber">Register Number</label>
+                    <input type="text" id="rollNumber" placeholder="Enter your register number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                
+                <button type="submit" class="btn-primary">Get Attendance</button>
+            </form>
+            
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+        
+        <!-- Attendance Display Section -->
+        <div id="attendanceSection" class="section">
+            <div class="header">
+                <h2>Attendance Details</h2>
+                <button id="logoutBtn" class="btn-secondary">Logout</button>
+            </div>
+            
+            <div class="user-info">
+                <p><strong>Register Number:</strong> <span id="displayRoll"></span></p>
+                <p><strong>Name:</strong> <span id="displayName"></span></p>
+            </div>
+            
+            <div class="attendance-summary">
+                <div class="summary-card average">
+                    <h3>Overall Average</h3>
+                    <div class="percentage" id="overallAverage">0%</div>
+                </div>
+            </div>
+            
+            <div class="attendance-details">
+                <h3>Subject-wise Attendance</h3>
+                <div id="attendanceList" class="attendance-list">
+                    <!-- Attendance items will be dynamically inserted here -->
+                </div>
+            </div>
+            
+            <!-- Skip Calculator Section -->
+            <div class="skip-calculator">
+                <h3>How many classes can you skip?</h3>
+                <p>Want to know how many classes can you skip for a week? Select a subject to calculate.</p>
+                <button id="calculateSkipBtn" class="btn-primary">Calculate Skip Days</button>
+            </div>
+            
+            <div id="skipResults" class="skip-results" style="display: none;">
+                <h4>You can skip up to:</h4>
+                <div id="skipDetails"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
