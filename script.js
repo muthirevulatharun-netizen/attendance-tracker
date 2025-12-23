@@ -4,9 +4,9 @@ let currentSession = null;
 
 // Sample database for demonstration (fallback)
 const userDatabase = {
-    "MIT123": { password: "password123", name: "John Doe" },
-    "MIT456": { password: "password456", name: "Jane Smith" },
-    "MIT789": { password: "password789", name: "Robert Johnson" },
+    "MIT123": { password: "password123", name: "24691A32S8" },
+    "MIT456": { password: "password1234", name: "24691A32T7" },
+    "MIT789": { password: "password8", name: "24691A32R8" },
 };
 
 // Sample attendance data (fallback)
