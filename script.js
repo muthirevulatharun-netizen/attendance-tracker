@@ -12,36 +12,39 @@ const userDatabase = {
 const attendanceDatabase = {
     "24691A32R8": [
         { subject: "Aptitude", present: 1, total: 1 },
-        { subject: "Discrete Mathematical Structures", present: 38, total: 50 },
-        {subject: "environmental science", present: 1, total: 2},
-        { subject: "Introduction To Data Science", present: 32, total: 45 },
-        { subject: "Data Engineering", present: 40, total: 48 },
-        { subject: "Data Science Laboratory", present: 44, total: 50 },
-        { subject: "NPTEL-1", present: 44, total: 50 },
-        { subject: "NPTEL-2", present: 44, total: 50 },
-        { subject: "Code Tantra", present: 44, total: 50 }
+        { subject: "Discrete Mathematical Structures", present: 3, total: 3 },
+        {subject: "environmental science", present: 2, total: 3},
+        { subject: "Introduction To Data Science", present: 3, total: 3 },
+        { subject: "Data Engineering", present: 3, total: 3},
+        { subject: "Data Science Laboratory", present: 3, total: 3 },
+        { subject: "NPTEL-1", present: 3, total: 3 },
+        { subject: "NPTEL-2", present: 2, total: 2},
+        { subject: "Code Tantra", present: 2, total: 2 },
+        {subject: "Data engineering laboratory", present: 3, total: 3},
+    ],
     ],
     "24691A32S8": [
         { subject: "Aptitude", present: 1, total: 1 },
         { subject: "Discrete Mathematical Structures", present: 3, total: 3},
-        {subject: "environmental science", present: 1, total: 2},
+        {subject: "environmental science", present: 2, total: 3},
         { subject: "Introduction To Data Science", present: 2, total: 3 },
         { subject: "Data Engineering", present: 3, total: 3 },
         { subject: "Data Science Laboratory", present: 3, total: 3 },
-        { subject: "NPTEL-1", present: 2, total: 2 },
+        { subject: "NPTEL-1", present: 3, total: 3 },
         { subject: "NPTEL-2", present: 2, total: 2 },
-        { subject: "Code Tantra", present: 2, total: 2 }
+        { subject: "Code Tantra", present: 2, total: 2 },
+        {subject: "Data engineering laboratory", present: 3, total: 3},
     ],
     "24691A32T7": [
-        { subject: "Aptitude", present: 1, total: 1 },
-        { subject: "Discrete Mathematical Structures", present: 38, total: 50 },
-        {subject: "environmental science", present: 1, total: 2},
-        { subject: "Introduction To Data Science", present: 32, total: 45 },
-        { subject: "Data Engineering", present: 40, total: 48 },
-        { subject: "Data Science Laboratory", present: 44, total: 50 },
-        { subject: "NPTEL-1", present: 44, total: 50 },
-        { subject: "NPTEL-2", present: 44, total: 50 },
-        { subject: "Code Tantra", present: 44, total: 50 }
+        { subject: "Aptitude", present: 0, total: 1 },
+        { subject: "Discrete Mathematical Structures", present: 0, total: 3},
+        {subject: "environmental science", present: 0, total: 2},
+        { subject: "Introduction To Data Science", present: 1, total: 3 },
+        { subject: "Data Engineering", present: 0, total: 3 },
+        { subject: "Data Science Laboratory", present: 0, total: 3 },
+        { subject: "NPTEL-1", present: 0, total: 2},
+        { subject: "NPTEL-2", present: 44, total: 2 },
+        { subject: "Code Tantra", present: 2, total: 2 }
     ]
 };
 
