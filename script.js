@@ -45,7 +45,6 @@ const attendanceDatabase = {
         { subject: "NPTEL-2", present: 0, total: 2 },
         { subject: "Code Tantra", present: 2, total: 2 },
         {subject: "Data engineering laboratory", present: 0, total: 0},
-    ],
     ]
 };
 
