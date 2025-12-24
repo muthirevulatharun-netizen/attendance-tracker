@@ -22,7 +22,6 @@ const attendanceDatabase = {
         { subject: "Code Tantra", present: 2, total: 2 },
         {subject: "Data engineering laboratory", present: 3, total: 3},
     ],
-    ],
     "24691A32S8": [
         { subject: "Aptitude", present: 1, total: 1 },
         { subject: "Discrete Mathematical Structures", present: 3, total: 3},
